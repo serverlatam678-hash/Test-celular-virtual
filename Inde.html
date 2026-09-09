@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celular Virtual</title>
+    <!-- Ícones do FontAwesome para os botões do celular -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="phone">
+        <!-- Barra de Notch (Entalhe da Câmera) -->
+        <div class="notch">
+            <div class="camera"></div>
+            <div class="speaker"></div>
+        </div>
+
+        <!-- Tela do Celular -->
+        <div class="screen">
+            
+            <!-- Barra de Status Superior -->
+            <div class="status-bar">
+                <span class="time" id="clock">12:00</span>
+                <div class="status-icons">
+                    <i class="fa-solid fa-signal"></i>
+                    <i class="fa-solid fa-wifi"></i>
+                    <i class="fa-solid fa-battery-full"></i>
+                </div>
+            </div>
+
+            <!-- TELA INICIAL (HOME) -->
+            <div class="app-screen active" id="home-screen">
+                <div class="widgets">
+                    <h2 id="widget-date">Segunda, 1 de Jan</h2>
+                    <div class="search-widget" onclick="openApp('browser-screen')">
+                        <i class="fa-brands fa-google"></i>
+                        <span>Pesquisar na Web...</span>
+                    </div>
+                </div>
+
+                <!-- Grid de Aplicativos -->
+                <div class="app-grid">
+                    <div class="app-icon" onclick="openApp('browser-screen')">
+                        <div class="icon-box google-icon">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <span>Google</span>
+                    </div>
+                    <!-- Apps decorativos para parecer um celular real -->
+                    <div class="app-icon">
+                        <div class="icon-box camera-icon">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <span>Câmera</span>
+                    </div>
+                    <div class="app-icon">
+                        <div class="icon-box gallery-icon">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <span>Galeria</span>
+                    </div>
+                    <div class="app-icon">
+                        <div class="icon-box settings-icon">
+                            <i class="fa-solid fa-gear"></i>
+                        </div>
+                        <span>Ajustes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TELA DO NAVEGADOR GOOGLE -->
+            <div class="app-screen" id="browser-screen">
+                <div class="browser-header">
+                    <div class="address-bar">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="text" id="url-input" placeholder="Pesquise no Google ou digite um URL..." onkeydown="handleSearch(event)">
+                        <i class="fa-solid fa-magnifying-glass" onclick="executeSearch()"></i>
+                    </div>
+                </div>
+
+                <!-- Área de exibições da Web -->
+                <div class="browser-content">
+                    <div id="google-home" class="google-home-view">
+                        <h1 class="logo"><span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span></h1>
+                        <div class="search-box">
+                            <input type="text" id="google-search-input" placeholder="Pesquisar na Web..." onkeydown="handleGoogleHomeSearch(event)">
+                            <button onclick="executeGoogleHomeSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                    <!-- Frame para carregar o conteúdo da pesquisa/web -->
+                    <iframe id="web-frame" src="" style="display: none;"></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Barra de Navegação Inferior (Botões do Celular) -->
+        <div class="nav-bar">
+            <button onclick="goBack()"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="goHome()"><i class="fa-solid fa-circle"></i></button>
+            <button onclick="showTabs()"><i class="fa-solid fa-square"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
